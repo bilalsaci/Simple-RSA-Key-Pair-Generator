@@ -10,20 +10,6 @@ function generateKeyPair() {
 
 function copyToClipboard(elementId) {
             var textarea = document.getElementById(elementId);
-            var lines = textarea.value.split('\n');
-
-            // Remove the first and last lines
-            if (lines.length > 2) {
-                lines = lines.slice(1, -1);
-            }
-
-            // Join the remaining lines and copy them to the clipboard
-            var textToCopy = lines.join('\n');
-
-            var temporaryTextarea = document.createElement('textarea');
-            temporaryTextarea.value = textToCopy;
-            document.body.appendChild(temporaryTextarea);
-            temporaryTextarea.select();
+            textarea.select();
             document.execCommand('copy');
-            document.body.removeChild(temporaryTextarea);
         }
